@@ -1,0 +1,266 @@
+import { useState } from 'react';
+
+const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [status, setStatus] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Create mailto link with form data
+        const mailtoLink = `mailto:reebanaustrive@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+
+        window.location.href = mailtoLink;
+
+        setStatus('Opening your email client...');
+        setTimeout(() => {
+            setStatus('');
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        }, 2000);
+    };
+
+    const socialLinks = [
+        {
+            name: 'GitHub',
+            url: 'https://github.com/ReebanAustrive',
+            icon: (
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            )
+        },
+        {
+            name: 'LinkedIn',
+            url: 'https://www.linkedin.com/in/reeban-austrive-11019a254/',
+            icon: (
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+            )
+        },
+        {
+            name: 'Email',
+            url: 'mailto:reebanaustrive@gmail.com',
+            icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            )
+        },
+        {
+            name: 'Medium',
+            url: 'https://medium.com/@reebanaustrive',
+            icon: (
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                </svg>
+            )
+        }
+    ];
+
+    return (
+        <div className="min-h-screen pt-24 px-6 pb-12">
+            <div className="max-w-6xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-12 animate-fade-in">
+                    <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-4">
+                        Get In Touch
+                    </h1>
+                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                        Have a question or want to work together? Feel free to reach out!
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12">
+                    {/* Contact Form */}
+                    <div className="animate-slide-up">
+                        <div className="glass-effect rounded-lg p-8">
+                            <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Name */}
+                                <div>
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                                        Your Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+
+                                {/* Email */}
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                        Your Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        placeholder="john@example.com"
+                                    />
+                                </div>
+
+                                {/* Subject */}
+                                <div>
+                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                                        Subject
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="subject"
+                                        name="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        placeholder="Project Inquiry"
+                                    />
+                                </div>
+
+                                {/* Message */}
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                                        Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                        rows="5"
+                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500 resize-none"
+                                        placeholder="Tell me about your project..."
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    className="w-full px-6 py-3 bg-primaryPurple hover:bg-hoverBlue transition-all duration-300 rounded-lg font-medium hover:scale-105 hover:shadow-lg hover:shadow-hoverBlue/50 flex items-center justify-center gap-2"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                    </svg>
+                                    Send Message
+                                </button>
+
+                                {/* Status Message */}
+                                {status && (
+                                    <p className="text-center text-hoverBlue text-sm">{status}</p>
+                                )}
+                            </form>
+                        </div>
+                    </div>
+
+                    {/* Contact Info & Social Links */}
+                    <div className="space-y-8 animate-slide-up">
+                        {/* Contact Information */}
+                        <div className="glass-effect rounded-lg p-8">
+                            <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
+
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-white font-medium mb-1">Email</h3>
+                                        <a href="mailto:reebanaustrive@gmail.com" className="text-gray-400 hover:text-hoverBlue transition-colors">
+                                            reebanaustrive@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-white font-medium mb-1">Location</h3>
+                                        <p className="text-gray-400">Coimbatore, Tamil Nadu</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-white font-medium mb-1">Response Time</h3>
+                                        <p className="text-gray-400">Usually within 24 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="glass-effect rounded-lg p-8">
+                            <h2 className="text-2xl font-bold text-white mb-6">Connect With Me</h2>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 p-4 bg-primaryPurple/20 hover:bg-primaryPurple/30 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-hoverBlue/20 group"
+                                    >
+                                        <div className="text-hoverBlue group-hover:scale-110 transition-transform">
+                                            {social.icon}
+                                        </div>
+                                        <span className="text-white font-medium">{social.name}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Fun Fact */}
+                        <div className="glass-effect rounded-lg p-8 border-l-4 border-hoverBlue">
+                            <h3 className="text-xl font-bold text-white mb-3">💡 Fun Fact</h3>
+                            <p className="text-gray-400">
+                                I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your vision. Let's build something amazing together!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Contact;
