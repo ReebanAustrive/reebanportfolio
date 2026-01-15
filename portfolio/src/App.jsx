@@ -4,6 +4,7 @@ import Landing from './pages/Landing';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import ComingSoon from './pages/ComingSoon';
+import Idols from './pages/Idols';
 import './index.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/goals" element={<ComingSoon title="Goals" />} />
-          <Route path="/idols" element={<ComingSoon title="My Idols" />} />
+          <Route path="/idols" element={<Idols />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<ComingSoon title="About" />} />
           <Route path="/contact" element={<Contact />} />
