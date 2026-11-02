@@ -61,6 +61,10 @@ const GitHubActivity = () => {
         <div className="space-y-6">
             <h2 className="text-3xl font-bold gradient-text">Recent Activity</h2>
 
+            {activities.length === 0 && (
+                <p className="text-gray-400">No recent public activity to show.</p>
+            )}
+
             <div className="space-y-3">
                 {displayedActivities.map((activity, index) => (
                     <a

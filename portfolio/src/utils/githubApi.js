@@ -46,13 +46,41 @@ export const fetchGitHubActivity = async () => {
             throw new Error(`GitHub API error: ${response.status}`);
         }
 
-        const data = await response.json();
+        let data = await response.json();
+
+        // The events feed is often empty or delayed, so fall back to recently pushed repos
+        if (data.length === 0) {
+            data = await fetchRecentlyPushedRepos();
+        }
+
         setCachedData(cacheKey, data);
         return data;
     } catch (error) {
         console.error('Error fetching GitHub activity:', error);
         throw error;
     }
+};
+
+// Fetch recently pushed repos, shaped like events so formatActivityEvent can handle them
+const fetchRecentlyPushedRepos = async () => {
+    const response = await fetch(
+        `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`,
+        requestOptions
+    );
+
+    if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status}`);
+    }
+
+    const repos = await response.json();
+    return repos
+        .filter(repo => !repo.fork)
+        .map(repo => ({
+            type: 'RepoUpdate',
+            repo: { name: repo.full_name },
+            created_at: repo.pushed_at,
+            payload: {},
+        }));
 };
 
 // Fetch user's repositories
@@ -118,6 +146,10 @@ export const formatActivityEvent = (event) => {
         case 'WatchEvent':
             action = `Starred ${repo}`;
             icon = '⭐';
+            break;
+        case 'RepoUpdate':
+            action = `Pushed updates to ${repo}`;
+            icon = '🚀';
             break;
         case 'ForkEvent':
             action = `Forked ${repo}`;
