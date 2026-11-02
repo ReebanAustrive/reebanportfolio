@@ -1,9 +1,14 @@
-import { GITHUB_USERNAME } from './config';
+import { GITHUB_USERNAME, GITHUB_TOKEN } from './config';
 
 const GITHUB_API_BASE = 'https://api.github.com';
 
 // Cache duration in milliseconds (5 minutes)
 const CACHE_DURATION = 5 * 60 * 1000;
+
+// Send the token only when one is configured
+const requestOptions = GITHUB_TOKEN
+    ? { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
+    : {};
 
 // Helper function to get cached data
 const getCachedData = (key) => {
@@ -35,7 +40,7 @@ export const fetchGitHubActivity = async () => {
     if (cached) return cached;
 
     try {
-        const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/events/public?per_page=10`);
+        const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/events/public?per_page=10`, requestOptions);
 
         if (!response.ok) {
             throw new Error(`GitHub API error: ${response.status}`);
@@ -59,7 +64,8 @@ export const fetchGitHubRepos = async () => {
 
     try {
         const response = await fetch(
-            `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`
+            `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`,
+            requestOptions
         );
 
         if (!response.ok) {

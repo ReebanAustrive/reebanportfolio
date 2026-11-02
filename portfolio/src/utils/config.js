@@ -1,5 +1,5 @@
-// GitHub username configuration
-export const GITHUB_USERNAME = 'ReebanAustrive'; // Replace with your actual GitHub username
+// GitHub configuration, loaded from .env (see .env.example)
+export const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
 
-// Optional: Add your GitHub Personal Access Token for higher rate limits
-// export const GITHUB_TOKEN = 'your_token_here';
+// Optional: GitHub Personal Access Token for higher rate limits
+export const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;

@@ -48,7 +48,7 @@ const GitHubActivity = () => {
                 <h2 className="text-3xl font-bold gradient-text mb-4">Recent Activity</h2>
                 <p className="text-red-400">{error}</p>
                 <p className="text-gray-400 text-sm mt-2">
-                    Make sure to update your GitHub username in <code className="text-accent">src/utils/config.js</code>
+                    Make sure <code className="text-accent">VITE_GITHUB_USERNAME</code> is set in your <code className="text-accent">.env</code> file
                 </p>
             </div>
         );
