@@ -2,12 +2,12 @@
 export const customProjects = [
     {
         id: 1,
-        title: 'Tip-note',
-        description: 'Tip-note is a web application that allows users to create and edit their personal notes. Simply it is a Nota making Web-app',
-        technologies: ['React', 'Node.js', 'Java', 'Docker'],
-        repoUrl: 'https://github.com/ReebanAustrive/Tip-Note',
-        // demoUrl: 'https://project1-demo.com',
-        image: null, // Optional: Add image URL
+        title: 'AI-Assistant-Micro-SaaS',
+        description: 'A context-aware AI code review CLI that fetches any GitHub PR, analyzes the diff against your project\'s architecture and rules, and returns warnings, suggestions, and a production risk score',
+        technologies: ['Java', 'Spring Boot', 'Spring Shell', 'Claude API'],
+        repoUrl: 'https://github.com/ReebanAustrive/AI-Assitant-Micro-Saas',
+        demoUrl: 'https://github.com/ReebanAustrive/AI-Assitant-Micro-Saas/releases',
+        image: null,
     },
     {
         id: 2,
@@ -16,35 +16,6 @@ export const customProjects = [
         technologies: ['React', 'Node.js', 'Python', 'Emergent.ai'],
         repoUrl: 'https://github.com/ReebanAustrive/TipHub',
         demoUrl: 'https://github.com/ReebanAustrive/TipHub/releases/tag/v1.0.0',
-        image: null,
-    },
-    {
-        id: 3,
-        title: 'Tipper-Image-Editor',
-        description: 'Tipper-Image-Editor is python script to edit the image and it is running on Open cv',
-        technologies: ['Python','Docker'],
-        repoUrl: 'https://github.com/ReebanAustrive/Tipper---Image-editore',
-        // demoUrl: 'https://project3-demo.com',
-        image: null,
-    },
-    // Add more projects as needed
-
-    {
-        id: 4,
-        title: 'QRCode-API',
-        description: 'QRCode-API is .NET application that allows users to generate the QR-code from string or link',
-        technologies: ['.NET','C#'],
-        repoUrl: 'https://github.com/ReebanAustrive/QRCode-API',
-        // demoUrl: 'https://project3-demo.com',
-        image: null,
-    },
-    {
-        id: 5,
-        title: 'Prompting-Tech',
-        description: 'Prompting-Tech is the GEN-AI project ',
-        technologies: ['Python','Docker'],
-        repoUrl: 'https://github.com/ReebanAustrive/Prompting-Tech',  
-        // demoUrl: 'https://project3-demo.com',
         image: null,
     },
 ];

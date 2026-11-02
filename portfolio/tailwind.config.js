@@ -4,9 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkPurple: '#1a0b2e',
-        primaryPurple: '#7b2cbf',
-        hoverBlue: '#4cc9f0',
+        night: '#231E33',
+        surface: '#6B5B95',
+        primary: '#FF6F61',
+        accent: '#92A8D1',
+        light: '#F7CAC9',
+        leaf: '#88B04B',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

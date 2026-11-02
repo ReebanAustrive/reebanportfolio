@@ -1,9 +1,9 @@
 const ProjectCard = ({ project }) => {
     return (
-        <div className="glass-effect rounded-lg p-6 hover:bg-primaryPurple/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-hoverBlue/30 group">
+        <div className="glass-effect rounded-lg p-6 hover:bg-primary/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent/30 group">
             <div className="flex flex-col h-full">
                 {/* Project Title */}
-                <h3 className="text-2xl font-bold text-white group-hover:text-hoverBlue transition-colors mb-3">
+                <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors mb-3">
                     {project.title}
                 </h3>
 
@@ -17,7 +17,7 @@ const ProjectCard = ({ project }) => {
                     {project.technologies.map((tech, index) => (
                         <span
                             key={index}
-                            className="px-3 py-1 text-xs font-medium bg-primaryPurple/30 text-hoverBlue rounded-full border border-primaryPurple/50 hover:border-hoverBlue transition-colors"
+                            className="px-3 py-1 text-xs font-medium bg-primary/30 text-accent rounded-full border border-primary/50 hover:border-accent transition-colors"
                         >
                             {tech}
                         </span>
@@ -30,7 +30,7 @@ const ProjectCard = ({ project }) => {
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-primaryPurple hover:bg-hoverBlue transition-all duration-300 rounded-lg text-sm font-medium hover:scale-105"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-night hover:bg-accent transition-all duration-300 rounded-lg text-sm font-medium hover:scale-105"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ const ProjectCard = ({ project }) => {
                             href={project.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 border-2 border-primaryPurple hover:border-hoverBlue hover:bg-hoverBlue/10 transition-all duration-300 rounded-lg text-sm font-medium hover:scale-105"
+                            className="flex items-center gap-2 px-4 py-2 border-2 border-primary hover:border-accent hover:bg-accent/10 transition-all duration-300 rounded-lg text-sm font-medium hover:scale-105"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

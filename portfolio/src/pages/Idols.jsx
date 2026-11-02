@@ -10,7 +10,7 @@ const Idols = () => {
             title: "Indian Cricketer",
             description: "Virat Kohli is a prominent Indian cricketer, widely regarded as one of the best batsmen in the world",
             quote: "Self-belief and hard work will always earn you success.",
-            gradient: "from-purple-600 via-primaryPurple to-purple-900",
+            gradient: "from-surface via-night to-night",
             // icon: "🏏",
             initials: "VK",
             imageUrl: "/viratKholi.webp"
@@ -21,7 +21,7 @@ const Idols = () => {
             title: "Professional Moto-GP Racer",
             description: "Marc Márquez is a highly successful Spanish professional motorcycle road racer for the factory Ducati Lenovo Team in the MotoGP World Championship.",
             quote: "The speed is there, but we need to avoid the mistakes.",
-            gradient: "from-blue-600 via-hoverBlue to-blue-900",
+            gradient: "from-primary via-surface to-night",
             // icon: "🏍️",
             // initials: "MM",
             imageUrl: "/marcMarquez.webp"
@@ -32,7 +32,7 @@ const Idols = () => {
             title: "Portugese Footballer",
             description: "Cristiano Ronaldo is a Portuguese professional footballer who is currently the all-time top goalscorer in the history of men's football",
             quote: "I am not a perfectionist, but I like to feel that things are done well.",
-            gradient: "from-indigo-600 via-primaryPurple to-indigo-900",
+            gradient: "from-surface via-primary to-night",
             // icon: "⚽",
             initials: "CR",
             imageUrl: "/ronaldo.webp"
@@ -43,7 +43,7 @@ const Idols = () => {
             title: "Formula 1 Oracle-RedBull Racer",
             description: "Max Verstappen is a highly successful Dutch Formula 1 driver for Oracle Red Bull Racing, known for his aggressive style and record-breaking achievements",
             quote: "Simply lovely",
-            gradient: "from-cyan-600 via-hoverBlue to-cyan-900",
+            gradient: "from-night via-surface to-leaf",
             // icon: "🏎️",
             initials: "MV",
             imageUrl: "/max.jpg"
@@ -51,7 +51,7 @@ const Idols = () => {
     ];
 
     return (
-        <div className="min-h-screen pt-20 px-4 pb-4">
+        <div className="px-4 py-16">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-8 animate-fade-in">
@@ -77,7 +77,7 @@ const Idols = () => {
                                 h-full rounded-2xl p-6 
                                 bg-gradient-to-br ${idol.gradient}
                                 transform transition-all duration-500 ease-out
-                                ${hoveredCard === idol.id ? 'scale-105 shadow-2xl shadow-primaryPurple/50' : 'scale-100'}
+                                ${hoveredCard === idol.id ? 'scale-105 shadow-2xl shadow-primary/50' : 'scale-100'}
                                 border border-white/10
                                 flex flex-col justify-between
                                 overflow-hidden

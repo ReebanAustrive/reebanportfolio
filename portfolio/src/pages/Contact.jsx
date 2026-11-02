@@ -73,7 +73,7 @@ const Contact = () => {
     ];
 
     return (
-        <div className="min-h-screen pt-24 px-6 pb-12">
+        <div className="px-6 py-16">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12 animate-fade-in">
@@ -104,7 +104,7 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        className="w-full px-4 py-3 bg-night border border-primary/30 rounded-lg focus:outline-none focus:border-accent transition-colors text-white placeholder-gray-500"
                                         placeholder="John Doe"
                                     />
                                 </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        className="w-full px-4 py-3 bg-night border border-primary/30 rounded-lg focus:outline-none focus:border-accent transition-colors text-white placeholder-gray-500"
                                         placeholder="john@example.com"
                                     />
                                 </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500"
+                                        className="w-full px-4 py-3 bg-night border border-primary/30 rounded-lg focus:outline-none focus:border-accent transition-colors text-white placeholder-gray-500"
                                         placeholder="Project Inquiry"
                                     />
                                 </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                                         onChange={handleChange}
                                         required
                                         rows="5"
-                                        className="w-full px-4 py-3 bg-darkPurple border border-primaryPurple/30 rounded-lg focus:outline-none focus:border-hoverBlue transition-colors text-white placeholder-gray-500 resize-none"
+                                        className="w-full px-4 py-3 bg-night border border-primary/30 rounded-lg focus:outline-none focus:border-accent transition-colors text-white placeholder-gray-500 resize-none"
                                         placeholder="Tell me about your project..."
                                     />
                                 </div>
@@ -163,7 +163,7 @@ const Contact = () => {
                                 {/* Submit Button */}
                                 <button
                                     type="submit"
-                                    className="w-full px-6 py-3 bg-primaryPurple hover:bg-hoverBlue transition-all duration-300 rounded-lg font-medium hover:scale-105 hover:shadow-lg hover:shadow-hoverBlue/50 flex items-center justify-center gap-2"
+                                    className="w-full px-6 py-3 bg-primary text-night hover:bg-accent transition-all duration-300 rounded-lg font-medium hover:scale-105 hover:shadow-lg hover:shadow-accent/50 flex items-center justify-center gap-2"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -173,7 +173,7 @@ const Contact = () => {
 
                                 {/* Status Message */}
                                 {status && (
-                                    <p className="text-center text-hoverBlue text-sm">{status}</p>
+                                    <p className="text-center text-accent text-sm">{status}</p>
                                 )}
                             </form>
                         </div>
@@ -187,22 +187,22 @@ const Contact = () => {
 
                             <div className="space-y-4">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                     <div>
                                         <h3 className="text-white font-medium mb-1">Email</h3>
-                                        <a href="mailto:reebanaustrive@gmail.com" className="text-gray-400 hover:text-hoverBlue transition-colors">
+                                        <a href="mailto:reebanaustrive@gmail.com" className="text-gray-400 hover:text-accent transition-colors">
                                             reebanaustrive@gmail.com
                                         </a>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
@@ -214,8 +214,8 @@ const Contact = () => {
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 bg-primaryPurple/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg className="w-6 h-6 text-hoverBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                     </div>
@@ -238,9 +238,9 @@ const Contact = () => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-3 p-4 bg-primaryPurple/20 hover:bg-primaryPurple/30 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-hoverBlue/20 group"
+                                        className="flex items-center gap-3 p-4 bg-primary/20 hover:bg-primary/30 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/20 group"
                                     >
-                                        <div className="text-hoverBlue group-hover:scale-110 transition-transform">
+                                        <div className="text-accent group-hover:scale-110 transition-transform">
                                             {social.icon}
                                         </div>
                                         <span className="text-white font-medium">{social.name}</span>
@@ -250,7 +250,7 @@ const Contact = () => {
                         </div>
 
                         {/* Fun Fact */}
-                        <div className="glass-effect rounded-lg p-8 border-l-4 border-hoverBlue">
+                        <div className="glass-effect rounded-lg p-8 border-l-4 border-accent">
                             <h3 className="text-xl font-bold text-white mb-3">💡 Fun Fact</h3>
                             <p className="text-gray-400">
                                 I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your vision. Let's build something amazing together!

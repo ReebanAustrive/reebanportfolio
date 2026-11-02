@@ -10,19 +10,19 @@
   }
 
   body {
-    @apply bg-darkPurple text-white font-sans;
+    @apply bg-night text-light font-sans;
   }
 }
 
 @layer utilities {
   .glass-effect {
-    background: rgba(123, 44, 191, 0.1);
+    background: rgba(107, 91, 149, 0.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primaryPurple to-hoverBlue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-light bg-clip-text text-transparent;
   }
 }

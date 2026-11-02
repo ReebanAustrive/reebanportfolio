@@ -1,19 +1,13 @@
 import GitHubActivity from '../components/GitHubActivity';
-import PinnedProjects from '../components/PinnedProjects';
 import ProjectCard from '../components/ProjectCard';
 import { customProjects } from '../data/projectsData';
 
 const Projects = () => {
     return (
-        <div className="min-h-screen pt-24 px-6 pb-12">
+        <div className="px-6 py-16">
             <div className="max-w-7xl mx-auto space-y-16">
                 {/* GitHub Activity Section */}
                 <section className="animate-fade-in">
-                    <PinnedProjects />
-                </section>
-
-                {/* Pinned Repositories Section */}
-                <section className="animate-slide-up">
                     <GitHubActivity />
                 </section>
 

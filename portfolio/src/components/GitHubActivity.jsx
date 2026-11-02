@@ -33,8 +33,8 @@ const GitHubActivity = () => {
                 <div className="space-y-3">
                     {[...Array(3)].map((_, i) => (
                         <div key={i} className="glass-effect rounded-lg p-4 animate-pulse">
-                            <div className="h-4 bg-primaryPurple/30 rounded w-3/4 mb-2"></div>
-                            <div className="h-3 bg-primaryPurple/20 rounded w-1/2"></div>
+                            <div className="h-4 bg-primary/30 rounded w-3/4 mb-2"></div>
+                            <div className="h-3 bg-primary/20 rounded w-1/2"></div>
                         </div>
                     ))}
                 </div>
@@ -48,7 +48,7 @@ const GitHubActivity = () => {
                 <h2 className="text-3xl font-bold gradient-text mb-4">Recent Activity</h2>
                 <p className="text-red-400">{error}</p>
                 <p className="text-gray-400 text-sm mt-2">
-                    Make sure to update your GitHub username in <code className="text-hoverBlue">src/utils/config.js</code>
+                    Make sure to update your GitHub username in <code className="text-accent">src/utils/config.js</code>
                 </p>
             </div>
         );
@@ -68,12 +68,12 @@ const GitHubActivity = () => {
                         href={activity.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block glass-effect rounded-lg p-4 hover:bg-primaryPurple/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-hoverBlue/20 group"
+                        className="block glass-effect rounded-lg p-4 hover:bg-primary/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20 group"
                     >
                         <div className="flex items-start gap-3">
                             <span className="text-2xl flex-shrink-0">{activity.icon}</span>
                             <div className="flex-1 min-w-0">
-                                <p className="text-white group-hover:text-hoverBlue transition-colors">
+                                <p className="text-white group-hover:text-accent transition-colors">
                                     {activity.action}
                                 </p>
                                 <p className="text-sm text-gray-400 mt-1">
@@ -95,7 +95,7 @@ const GitHubActivity = () => {
                 <div className="flex justify-end">
                     <button
                         onClick={() => setShowAll(!showAll)}
-                        className="px-6 py-2 bg-primaryPurple hover:bg-hoverBlue transition-all duration-300 rounded-lg font-medium hover:scale-105 hover:shadow-lg hover:shadow-hoverBlue/50 flex items-center gap-2"
+                        className="px-6 py-2 bg-primary text-night hover:bg-accent transition-all duration-300 rounded-lg font-medium hover:scale-105 hover:shadow-lg hover:shadow-accent/50 flex items-center gap-2"
                     >
                         {showAll ? (
                             <>
